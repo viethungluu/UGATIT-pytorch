@@ -6,13 +6,14 @@ from networks import *
 from utils import *
 from glob import glob
 
-class UGATIT(object) :
+
+class UGATIT(object):
     def __init__(self, args):
         self.light = args.light
 
-        if self.light :
+        if self.light:
             self.model_name = 'UGATIT_light'
-        else :
+        else:
             self.model_name = 'UGATIT'
 
         self.result_dir = args.result_dir
@@ -241,7 +242,7 @@ class UGATIT(object) :
             self.genA2B.apply(self.Rho_clipper)
             self.genB2A.apply(self.Rho_clipper)
 
-            print("[%5d/%5d] time: %4.4f d_loss: %.8f, g_loss: %.8f" % (step, self.iteration, time.time() - start_time, Discriminator_loss, Generator_loss))
+            # print("[%5d/%5d] time: %4.4f d_loss: %.8f, g_loss: %.8f" % (step, self.iteration, time.time() - start_time, Discriminator_loss, Generator_loss))
             if step % self.print_freq == 0:
                 train_sample_num = 5
                 test_sample_num = 5
